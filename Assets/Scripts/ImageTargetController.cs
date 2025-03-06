@@ -1,20 +1,34 @@
 using System;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
 
 public class ImageTargetController : MonoBehaviour
 {
     [SerializeField] private ARTrackedImageManager _aRTrackedImageManager;
+    [SerializeField] private XRReferenceImageLibrary referenceLibrary;
     private GameObject _spawnedObject;
+
+    private void Awake()
+    {
+        if (_aRTrackedImageManager != null && referenceLibrary != null)
+        {
+            // Вот здесь правильно задаём библиотеку через property
+            _aRTrackedImageManager.referenceLibrary = referenceLibrary;
+        }
+    }
 
     void OnEnable()
     {
         _aRTrackedImageManager.trackedImagesChanged += ArTrackedImageManagerOntrakedImagesChanged;
+        Debug.Log("_aRTrackedImageManager.trackedImagesChanged += ArTrackedImageManagerOntrakedImagesChanged");
     }
 
     void OnDisable()
     {
         _aRTrackedImageManager.trackedImagesChanged -= ArTrackedImageManagerOntrakedImagesChanged;
+        Debug.Log("_aRTrackedImageManager.trackedImagesChanged -= ArTrackedImageManagerOntrakedImagesChanged");
+
     }
 
     private void ArTrackedImageManagerOntrakedImagesChanged(ARTrackedImagesChangedEventArgs obj)
