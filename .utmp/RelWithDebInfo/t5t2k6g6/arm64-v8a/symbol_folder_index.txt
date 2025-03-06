@@ -1,0 +1,1 @@
+C:\Users\Aleksandra\Main\Study\Development of augmented reality mobile applications 1\LW4\AR Project for lw4\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\t5t2k6g6\obj\arm64-v8a

@@ -1,0 +1,2 @@
+C:\Users\Aleksandra\Main\Study\Development of augmented reality mobile applications 1\LW4\AR Project for lw4\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\Users\Aleksandra\Main\Study\Development of augmented reality mobile applications 1\LW4\AR Project for lw4\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt
