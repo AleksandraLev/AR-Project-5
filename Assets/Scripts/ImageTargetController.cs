@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -6,17 +7,10 @@ using UnityEngine.XR.ARSubsystems;
 public class ImageTargetController : MonoBehaviour
 {
     [SerializeField] private ARTrackedImageManager _aRTrackedImageManager;
-    [SerializeField] private XRReferenceImageLibrary referenceLibrary;
+    //[SerializeField] private XRReferenceImageLibrary referenceLibrary;
     private GameObject _spawnedObject;
-
-    private void Awake()
-    {
-        if (_aRTrackedImageManager != null && referenceLibrary != null)
-        {
-            // Вот здесь правильно задаём библиотеку через property
-            _aRTrackedImageManager.referenceLibrary = referenceLibrary;
-        }
-    }
+    private Dictionary<Guid, GameObject> _spawnedObjects = new Dictionary<Guid, GameObject>();
+    
 
     void OnEnable()
     {
@@ -36,22 +30,28 @@ public class ImageTargetController : MonoBehaviour
         foreach (var addedImage in obj.added)
         {
             print(message: $"Added image: {addedImage.referenceImage.name}");
-            UpdatePrefab(addedImage.transform);
+            UpdatePrefab(addedImage);
         }
         foreach (var updatedImage in obj.updated)
         {
             print(message: $"Updated image: {updatedImage.referenceImage.name}");
-            UpdatePrefab(updatedImage.transform);
+            UpdatePrefab(updatedImage);
         }
     }
 
-    private void UpdatePrefab(Transform trackedImage)
+    private void UpdatePrefab(ARTrackedImage trackedImage)
     {
-        if (_spawnedObject == null)
+        // Проверяем, есть ли уже объект для этого изображения
+        if (!_spawnedObjects.ContainsKey(trackedImage.referenceImage.guid))
         {
-            _spawnedObject = Instantiate(_aRTrackedImageManager.trackedImagePrefab);
+            // Создаем объект, если его ещё нет
+            var spawnedObject = Instantiate(_aRTrackedImageManager.trackedImagePrefab);
+            _spawnedObjects[trackedImage.referenceImage.guid] = spawnedObject;
         }
 
-        _spawnedObject.transform.position = trackedImage.position;
+        // Обновляем позицию и ориентацию объекта
+        var existingObject = _spawnedObjects[trackedImage.referenceImage.guid];
+        existingObject.transform.position = trackedImage.transform.position;
+        existingObject.transform.rotation = trackedImage.transform.rotation;
     }
 }

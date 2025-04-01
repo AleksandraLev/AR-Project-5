@@ -18,22 +18,32 @@ MonoBehaviour:
     m_Storage: []
   m_Images:
   - m_SerializedGuid:
-      m_GuidLow: 4809240988191768133
-      m_GuidHigh: 14711994611515914390
+      m_GuidLow: 5377548000116018616
+      m_GuidHigh: 15281364612928765596
     m_SerializedTextureGuid:
-      m_GuidLow: 2577249118991453745
-      m_GuidHigh: 8861351108356212010
-    m_Size: {x: 0.1, y: 0.06630435}
+      m_GuidLow: 11075752338546827963
+      m_GuidHigh: 9734314348588583003
+    m_Size: {x: 0.1, y: 0.060000002}
     m_SpecifySize: 1
-    m_Name: flower
+    m_Name: robostancia
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
-      m_GuidLow: 4810123623527334817
-      m_GuidHigh: 5864230167428327090
+      m_GuidLow: 5478294401989725971
+      m_GuidHigh: 7530523740755918264
     m_SerializedTextureGuid:
-      m_GuidLow: 1955836790889467746
-      m_GuidHigh: 2484594100306087658
-    m_Size: {x: 0.1, y: 0.1}
+      m_GuidLow: 280387445689847726
+      m_GuidHigh: 16143136121737054601
+    m_Size: {x: 0.1, y: 0.07}
     m_SpecifySize: 1
-    m_Name: "\u0421\u0443\u043D\u0434\u0443\u043A"
+    m_Name: Stones
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4714755244553047074
+      m_GuidHigh: 13769288464045655967
+    m_SerializedTextureGuid:
+      m_GuidLow: 1127225941013359627
+      m_GuidHigh: 13520696197074346296
+    m_Size: {x: 0.1, y: 0.075}
+    m_SpecifySize: 1
+    m_Name: robostancia 3
     m_Texture: {fileID: 0}
